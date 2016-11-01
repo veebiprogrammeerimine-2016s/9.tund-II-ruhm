@@ -63,5 +63,26 @@
 		
 	}
 	
+	function deleteCar($id){
+    	
+        $database = "if16_romil";
+
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		
+		$stmt = $mysqli->prepare("UPDATE cars_and_colors SET deleted=NOW() WHERE id=? AND deleted IS NULL");
+		$stmt->bind_param("i",$id);
+		
+		// kas õnnestus salvestada
+		if($stmt->execute()){
+			// õnnestus
+			echo "kustutamine õnnestus!";
+		}
+		
+		$stmt->close();
+		$mysqli->close();
+		
+	}
+	
 	
 ?>

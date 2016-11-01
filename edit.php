@@ -15,6 +15,15 @@
 		
 	}
 	
+	//kustutan
+	if(isset($_GET["delete"])){
+		
+		deleteCar($_GET["id"]);
+		
+		header("Location: data.php");
+		exit();
+	}
+	
 	
 	
 	// kui ei ole id'd aadressireal siis suunan
@@ -46,3 +55,9 @@
   	
 	<input type="submit" name="update" value="Salvesta">
   </form>
+  
+  
+ <br>
+ <br>
+ <br>
+ <a href="?id=<?=$_GET["id"];?>&delete=true">kustuta</a>
