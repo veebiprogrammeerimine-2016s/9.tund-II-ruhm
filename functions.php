@@ -124,6 +124,7 @@
 		$stmt = $mysqli->prepare("
 			SELECT id, plate, color
 			FROM cars_and_colors
+			WHERE deleted IS NULL
 		");
 		echo $mysqli->error;
 		

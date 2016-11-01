@@ -3,6 +3,8 @@
 	require("functions.php");
 	require("editFunctions.php");
 	
+	//var_dump($_POST);
+	
 	//kas kasutaja uuendab andmeid
 	if(isset($_POST["update"])){
 		
@@ -13,9 +15,21 @@
 		
 	}
 	
+	
+	
+	// kui ei ole id'd aadressireal siis suunan
+	if(!isset($_GET["id"])){
+		header("Location: data.php");
+		exit();
+	}
+	
 	//saadan kaasa id
 	$c = getSingleCarData($_GET["id"]);
-	var_dump($c);
+	//var_dump($c);
+	
+	if(isset($_GET["success"])){
+		echo "salvestamine õnnestus";
+	}
 
 	
 ?>
